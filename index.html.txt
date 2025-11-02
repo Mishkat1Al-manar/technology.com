@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض التقنية الرقمية - ثانوية مشكاة المنار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* إعدادات عامة */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0e0e0e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* الهيدر */
+        header {
+            position: relative;
+            background: linear-gradient(to right, #1a1a1a, #2b2b2b);
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+            overflow: hidden;
+        }
+
+        header .logo {
+            width: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid #d4af37;
+            padding:6px;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        /* الحاوية العامة */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* البطاقات */
+        .card {
+            background: #1b1b1b;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+        }
+
+        .student-names p {
+            margin: 0;
+            color: #ccc;
+            font-size: 1em;
+        }
+
+        .card p {
+            color: #ddd;
+            font-size: 1em;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="photo-output.png" alt="شعار" class="logo">
+            <h1> معرض التقنية الرقمية - ثانوية مشكاة المنار الأهلية</h1>
+            <p>بإشراف الأستاذ <strong>محمود سعيد</strong></p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="card">
+            <div class="card-content">
+                <h2>مركز التميز الرقمي   </h2>
+                <div class="card-header">
+                    <div class="student-names">
+                        <p>طلال الحارثي <br>   </p>
+                    </div>
+                    <img src="IMG_4614.jpeg" alt="تطبيقات الويب">
+                </div>
+                <p>قسم مخصص لتقديم الدعم والمشورة للطلاب عبر الإنترنت، ويهدف إلى توفير موارد ومعلومات تساعد الطلاب في اتخاذ القرارات الأكاديمية والمهنية الصحيحة.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2> قاموس تفاعلي لـ تعلم  الإنجليزية</h2>
+                <div class="card-header">
+                    <div class="student-names">
+                        <p>فهد العتيبي<br> محمد العتيبي</p>
+                    </div>
+                    <img src="IMG_4614.jpeg" alt="تطبيقات الويب">
+                </div>
+                <p> موقع يساعدك على توسيع مفرداتك وبناء أساس لغوي قوي يمكنك الإعتماد عليه في الدراسة            .</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2> الذكاء الاصطناعي</h2>
+                <div class="card-header">
+                    <div class="student-names">
+                        <p> طارق القرني<br></p>
+                    </div>
+                    <img src="IMG_4614.jpeg" alt="الذكاء الاصطناعي">
+                </div>
+                <p>هذا القسم يتضمن مشاريع الذكاء الاصطناعي التي تهدف إلى تحسين التعلم الآلي وحلول الذكاء الاصطناعي.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>قسم توعية الأمن التقني</h2>
+                <div class="card-header">
+                    <div class="student-names">
+                        <p>فهد الأسمري<br> سعيد القحطاني</p>
+                    </div>
+                    <img src="IMG_4614.jpeg" alt="توعية الأمن التقني">
+                </div>
+                <p>تعرف هنا على طرق حماية الأجهزة والبيانات في العالم الرقمي، مع تقديم نصائح للتوعية الأمنية.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>قسم القطع والهاردوير</h2>
+                <div class="card-header">
+                    <div class="student-names">
+                        <p>عمر العتيبي</p>
+                    </div>
+                    <img src="IMG_4614.jpeg" alt="القطع والهاردوير">
+                </div>
+                <p>استعرض القطع المختلفة التي تكوّن الحاسب الآلي، من المعالج إلى الذاكرة ووحدات التخزين.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 ثانوية مشكاة المنار | جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
