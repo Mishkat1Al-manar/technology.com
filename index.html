@@ -13,33 +13,80 @@
       font-family: 'Tajawal', sans-serif;
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
       color: #ffffff;
-      overflow-x: hidden;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* ✅ السلايدر */
-    .container {
+    header {
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 215, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      font-weight: 900;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #ffd700, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stats {
       display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 45px;
-      padding: 80px 40px;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 60px;
+      flex-wrap: wrap;
     }
 
-    .container::-webkit-scrollbar { height: 0; }
+    /* ✅ السلايدر (بطاقة وحدة + Fade) */
+    .container {
+      max-width: 1500px;
+      margin: auto;
+      padding: 80px 40px;
+      position: relative;
+      height: 600px;
+    }
 
     .card {
-      scroll-snap-align: center;
-      min-width: 80%;
       background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.8));
       border-radius: 25px;
       border: 2px solid rgba(212, 175, 55, 0.25);
       padding: 40px;
-      transition: 0.4s;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+
+      /* جعل البطاقات مكدسة + مخفية */
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.4s ease-in-out;
     }
 
-    .card:hover { transform: scale(1.03); }
+    .card.active {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .card-header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid rgba(212,175,55,0.5);
+    }
 
     .featured-badge {
       background: #ffd700;
@@ -51,21 +98,8 @@
       font-weight: 700;
     }
 
-    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-
-    .card-header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 20px;
-      object-fit: cover;
-      border: 3px solid rgba(212,175,55,0.5);
-      transition: 0.4s;
-    }
-
-    .card:hover .card-header img { transform: scale(1.08); }
-
     h2 {
-      background: linear-gradient(135deg, #ffd700, #ffffff);
+      background: linear-gradient(135deg, #ffd700, #fff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-size: 1.8em;
@@ -75,138 +109,114 @@
     }
 
     p { font-size: 1.1em; line-height: 1.9; }
+
+    footer {
+      text-align: center;
+      padding: 60px;
+      color: #b0b0b0;
+      margin-top: 80px;
+    }
   </style>
 </head>
 
 <body>
 
-<header style="text-align:center; padding:100px 20px;">
-  <img src="photo-output.png" class="logo" style="width:140px;border-radius:50%;">
-  <h1 style="font-size:3em; margin-top:20px;">معرض التقنية الرقمية</h1>
-  <p style="font-size:1.3em;">ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
+<header>
+  <img src="photo-output.png" class="logo" alt="">
+  <h1>معرض التقنية الرقمية</h1>
+  <p>ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
 </header>
 
 <main class="container">
 
-  <!-- 1 -->
-  <div class="card">
+  <div class="card active">
     <div class="featured-badge">⭐ مميز</div>
     <h2>قاموس تفاعلي لتعلم الإنجليزية</h2>
-    <div class="card-header">
-      <div class="student-names"><p>فهد العتيبي<br>محمد العتيبي</p></div>
-      <img src="m.f.jfif" alt="">
-    </div>
-    <p>موقع يساعدك على توسيع مفرداتك وبناء أساس لغوي قوي يمكنك الاعتماد عليه في الدراسة.</p>
+    <div class="card-header"><div><p>فهد العتيبي<br>محمد العتيبي</p></div><img src="m.f.jfif"></div>
+    <p>موقع يساعد على توسيع المفردات وبناء أساس لغوي قوي.</p>
   </div>
 
-  <!-- 2 -->
   <div class="card">
     <h2>أداة Gamma AI</h2>
-    <div class="card-header">
-      <div class="student-names"><p>طارق القرني</p></div>
-      <img src="tariq.jfif" alt="">
-    </div>
-    <p>أداة لصناعة العروض التقديمية والمستندات باستخدام الذكاء الاصطناعي.</p>
+    <div class="card-header"><div><p>طارق القرني</p></div><img src="tariq.jfif"></div>
+    <p>صناعة عروض ومحتوى بالذكاء الاصطناعي.</p>
   </div>
 
-  <!-- 3 -->
-  <div class="card">
+  <div class="card active-fix">
     <div class="featured-badge">⭐ مميز</div>
     <h2>قسم التميز الرقمي</h2>
-    <div class="card-header">
-      <div class="student-names"><p>طلال الحارثي<br>محمد القحطاني</p></div>
-      <img src="talal.jfif" alt="">
-    </div>
-    <p>قسم يربط بين الذكاء الاصطناعي وإنترنت الأشياء لتطوير حلول تعليمية تفاعلية مبتكرة.</p>
+    <div class="card-header"><div><p>طلال الحارثي<br>محمد القحطاني</p></div><img src="talal.jfif"></div>
+    <p>دمج الذكاء الاصطناعي وإنترنت الأشياء لتحقيق بيئة تعليم مبتكرة.</p>
   </div>
 
-  <!-- 4 -->
   <div class="card">
     <h2>مساعد شخصي (كمي)</h2>
-    <div class="card-header">
-      <div class="student-names"><p>عمر العتيبي</p></div>
-      <img src="omar.jfif" alt="">
-    </div>
-    <p>مشروع بلغة بايثون باستخدام Unity كمساعد شخصي ذكي.</p>
+    <div class="card-header"><div><p>عمر العتيبي</p></div><img src="omar.jfif"></div>
+    <p>مساعد ذكي مطور باستخدام Python & Unity.</p>
   </div>
 
-  <!-- 5 -->
   <div class="card">
     <h2>مصحح نصوص</h2>
-    <div class="card-header">
-      <div class="student-names"><p>أحمد آل عادي</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>لعبة تعليمية تفاعلية لتصحيح النصوص وتحسين المهارات اللغوية.</p>
+    <div class="card-header"><div><p>أحمد آل عادي</p></div><img src="IMG_4614.jpeg"></div>
+    <p>لعبة تفاعلية لتحسين المهارات اللغوية.</p>
   </div>
 
-  <!-- 6 -->
   <div class="card">
     <h2>مترجم OpenL</h2>
-    <div class="card-header">
-      <div class="student-names"><p>محمد الغامدي</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>موقع لترجمة النصوص والمستندات والصوتيات بدقة عالية وتصحيح تلقائي للأخطاء.</p>
+    <div class="card-header"><div><p>محمد الغامدي</p></div><img src="IMG_4614.jpeg"></div>
+    <p>موقع ترجمة ذكي بدقة عالية.</p>
   </div>
 
-  <!-- 7 -->
   <div class="card">
     <h2>تنظيم الأهداف</h2>
-    <div class="card-header">
-      <div class="student-names"><p>حمد القحطاني</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>منظم مهام ومتابعة أهداف لطلاب المدارس بلغة HTML.</p>
+    <div class="card-header"><div><p>حمد القحطاني</p></div><img src="IMG_4614.jpeg"></div>
+    <p>منظم مهام وأهداف للطلاب.</p>
   </div>
 
-  <!-- 8 -->
   <div class="card">
     <h2>سجل درجات</h2>
-    <div class="card-header">
-      <div class="student-names"><p>فهد الأحمري</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>أداة رقمية لتسهيل رصد الدرجات وإدارة أعمال المعلمين.</p>
+    <div class="card-header"><div><p>فهد الأحمري</p></div><img src="IMG_4614.jpeg"></div>
+    <p>أداة رقمية لتسهيل الرصد.</p>
   </div>
 
-  <!-- 9 -->
   <div class="card">
     <h2>تنظيم الوقت</h2>
-    <div class="card-header">
-      <div class="student-names"><p>سيف الزهراني</p></div>
-      <img src="saif.jfif" alt="">
-    </div>
-    <p>تطبيق يساعد الطلاب على إدارة وقتهم وتحقيق أهدافهم الدراسية.</p>
+    <div class="card-header"><div><p>سيف الزهراني</p></div><img src="saif.jfif"></div>
+    <p>إدارة الوقت وتحقيق الأهداف الدراسية.</p>
   </div>
 
-  <!-- 10 -->
   <div class="card">
     <div class="featured-badge">⭐ مميز</div>
     <h2>برمجة روبوت</h2>
-    <div class="card-header">
-      <div class="student-names"><p>الوليد المنشرة</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>بناء روبوت من الصفر وبرمجته بـ Visual Programming.</p>
+    <div class="card-header"><div><p>الوليد المنشرة</p></div><img src="IMG_4614.jpeg"></div>
+    <p>بناء وبرمجة روبوت من الصفر.</p>
   </div>
 
-  <!-- 11 -->
   <div class="card">
     <div class="featured-badge">⭐ مميز</div>
     <h2>الأمن السيبراني</h2>
-    <div class="card-header">
-      <div class="student-names"><p>مشعل القحطاني</p></div>
-      <img src="IMG_4614.jpeg" alt="">
-    </div>
-    <p>أمن سيبراني وحماية معلومات.</p>
+    <div class="card-header"><div><p>مشعل القحطاني</p></div><img src="IMG_4614.jpeg"></div>
+    <p>حماية معلومات وأمن شبكات.</p>
   </div>
 
 </main>
 
-<footer style="text-align:center; padding:40px; color:#aaa;">
+<footer>
   © 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
 </footer>
+
+<script>
+let cards = document.querySelectorAll(".card");
+let index = 0;
+
+function nextCard() {
+  cards[index].classList.remove("active");
+  index = (index + 1) % cards.length;
+  cards[index].classList.add("active");
+}
+
+setInterval(nextCard, 3500);
+</script>
 
 </body>
 </html>
