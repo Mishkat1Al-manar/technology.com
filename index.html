@@ -15,349 +15,75 @@
       color: #ffffff;
       overflow-x: hidden;
       min-height: 100vh;
-      position: relative;
     }
 
-    /* خلفية متحركة فاخرة */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.12), transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.08), transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-      animation: shimmer 8s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-
-    /* نجوم متحركة */
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(255, 215, 0, 0.6);
-      border-radius: 50%;
-      animation: twinkle 3s ease-in-out infinite;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
-    }
-
-    header {
-      text-align: center;
-      padding: 120px 20px 80px;
-      position: relative;
-      z-index: 2;
-      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
-    }
-
-    /* الشعار الفاخر */
-    .logo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #d4af37, #f4e4c1, #d4af37);
-      padding: 8px;
-      box-shadow: 
-        0 0 40px rgba(212, 175, 55, 0.6),
-        0 0 80px rgba(212, 175, 55, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.2);
-      animation: glow 3s ease-in-out infinite;
-      border: 3px solid rgba(255, 215, 0, 0.3);
-    }
-
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.3); }
-      50% { box-shadow: 0 0 60px rgba(212, 175, 55, 0.8), 0 0 120px rgba(212, 175, 55, 0.5); }
-    }
-
-    header h1 {
-      font-size: 3.5em;
-      font-weight: 900;
-      margin-top: 30px;
-      background: linear-gradient(135deg, #ffd700, #ffed4e, #d4af37, #ffd700);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 4s ease infinite;
-      text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-      letter-spacing: 2px;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    header p { 
-      font-size: 1.3em;
-      color: #e0e0e0;
-      margin-top: 15px;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
-
-    header strong {
-      color: #ffd700;
-      font-weight: 700;
-    }
-
-    /* إحصائيات فاخرة */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-      margin-top: 60px;
-    }
-
-    .stat-item {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 134, 11, 0.1));
-      padding: 30px 50px;
-      border-radius: 20px;
-      border: 2px solid rgba(212, 175, 55, 0.3);
-      backdrop-filter: blur(15px);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 0 20px rgba(255, 215, 0, 0.1);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stat-item::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-      transform: rotate(45deg);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .stat-item:hover {
-      transform: translateY(-8px) scale(1.05);
-      border-color: rgba(255, 215, 0, 0.6);
-      box-shadow: 
-        0 12px 48px rgba(212, 175, 55, 0.4),
-        inset 0 0 30px rgba(255, 215, 0, 0.2);
-    }
-
-    .stat-number { 
-      font-size: 3em;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffd700, #ffed4e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat-label { 
-      font-size: 1.1em;
-      color: #d0d0d0;
-      margin-top: 5px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* الشبكة */
+    /* ✅ السلايدر */
     .container {
-      max-width: 1500px;
-      margin: auto;
-      padding: 80px 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       gap: 45px;
-      z-index: 2;
-      position: relative;
+      padding: 80px 40px;
     }
 
-    /* بطاقة فاخرة */
+    .container::-webkit-scrollbar { height: 0; }
+
     .card {
+      scroll-snap-align: center;
+      min-width: 80%;
       background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.8));
       border-radius: 25px;
       border: 2px solid rgba(212, 175, 55, 0.25);
       padding: 40px;
-      box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.5),
-        inset 0 0 30px rgba(255, 215, 0, 0.05);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
+      transition: 0.4s;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-      transition: left 0.7s;
+    .card:hover { transform: scale(1.03); }
+
+    .featured-badge {
+      background: #ffd700;
+      color: #000;
+      padding: 8px 18px;
+      border-radius: 25px;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
-    .card:hover::before {
-      left: 100%;
-    }
-
-    .card:hover {
-      transform: translateY(-12px) scale(1.02);
-      border-color: rgba(255, 215, 0, 0.5);
-      box-shadow: 
-        0 20px 60px rgba(212, 175, 55, 0.4),
-        0 0 80px rgba(255, 215, 0, 0.2),
-        inset 0 0 40px rgba(255, 215, 0, 0.1);
-    }
-
-    .card-header { 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-    }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
 
     .card-header img {
       width: 130px;
       height: 130px;
       border-radius: 20px;
       object-fit: cover;
-      border: 3px solid rgba(212, 175, 55, 0.5);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-      transition: all 0.4s ease;
+      border: 3px solid rgba(212,175,55,0.5);
+      transition: 0.4s;
     }
 
-    .card:hover .card-header img {
-      transform: scale(1.08) rotate(2deg);
-      border-color: rgba(255, 215, 0, 0.8);
-      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
-    }
+    .card:hover .card-header img { transform: scale(1.08); }
 
-    .card h2 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      background: linear-gradient(135deg, #ffd700, #fff);
+    h2 {
+      background: linear-gradient(135deg, #ffd700, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-      padding-bottom: 12px;
-      letter-spacing: 1px;
-    }
-
-    .student-names p { 
-      color: #e0e0e0;
-      font-size: 1.1em;
-      line-height: 1.8;
-      font-weight: 500;
-    }
-
-    .card p { 
-      color: #c0c0c0;
-      line-height: 1.9;
-      font-size: 1.1em;
-      font-weight: 300;
-    }
-
-    .featured-badge {
-      background: linear-gradient(135deg, #ffd700, #ffed4e);
-      padding: 8px 18px;
-      display: inline-block;
-      border-radius: 25px;
-      font-size: 0.9em;
-      font-weight: 700;
+      font-size: 1.8em;
       margin-bottom: 15px;
-      color: #1a1a2e;
-      box-shadow: 
-        0 4px 15px rgba(255, 215, 0, 0.4),
-        inset 0 0 10px rgba(255, 255, 255, 0.3);
-      animation: pulse 2s ease-in-out infinite;
+      border-bottom: 2px solid rgba(212,175,55,0.3);
+      padding-bottom: 12px;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    footer {
-      text-align: center;
-      padding: 60px;
-      margin-top: 100px;
-      color: #b0b0b0;
-      border-top: 2px solid rgba(212, 175, 55, 0.2);
-      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-      font-size: 1.1em;
-      letter-spacing: 1px;
-    }
-
-    /* تأثيرات الشاشات الصغيرة */
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5em; }
-      .container { grid-template-columns: 1fr; gap: 30px; }
-      .stats { gap: 25px; }
-      .logo { width: 110px; height: 110px; }
-    }
+    p { font-size: 1.1em; line-height: 1.9; }
   </style>
 </head>
 
 <body>
 
-<!-- نجوم متحركة -->
-<div class="stars">
-  <div class="star" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
-  <div class="star" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
-  <div class="star" style="top: 40%; left: 25%; animation-delay: 2s;"></div>
-  <div class="star" style="top: 60%; left: 70%; animation-delay: 0.5s;"></div>
-  <div class="star" style="top: 75%; left: 40%; animation-delay: 1.5s;"></div>
-  <div class="star" style="top: 85%; left: 90%; animation-delay: 2.5s;"></div>
-  <div class="star" style="top: 30%; left: 50%; animation-delay: 1.2s;"></div>
-  <div class="star" style="top: 50%; left: 10%; animation-delay: 2.2s;"></div>
-</div>
-
-<header>
-  <img src="photo-output.png" class="logo" alt="شعار المدرسة">
-  <h1>معرض التقنية الرقمية</h1>
-  <p>ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
-
-  <div class="stats">
-    <div class="stat-item">
-      <div class="stat-number">10</div>
-      <div class="stat-label">مشروع مبتكر</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">12</div>
-      <div class="stat-label">طالب مبدع</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">2025</div>
-      <div class="stat-label">العام الدراسي</div>
-    </div>
-  </div>
+<header style="text-align:center; padding:100px 20px;">
+  <img src="photo-output.png" class="logo" style="width:140px;border-radius:50%;">
+  <h1 style="font-size:3em; margin-top:20px;">معرض التقنية الرقمية</h1>
+  <p style="font-size:1.3em;">ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
 </header>
 
 <main class="container">
@@ -368,7 +94,7 @@
     <h2>قاموس تفاعلي لتعلم الإنجليزية</h2>
     <div class="card-header">
       <div class="student-names"><p>فهد العتيبي<br>محمد العتيبي</p></div>
-      <img src="m.f.jfif" alt="صورة المشروع">
+      <img src="m.f.jfif" alt="">
     </div>
     <p>موقع يساعدك على توسيع مفرداتك وبناء أساس لغوي قوي يمكنك الاعتماد عليه في الدراسة.</p>
   </div>
@@ -378,7 +104,7 @@
     <h2>أداة Gamma AI</h2>
     <div class="card-header">
       <div class="student-names"><p>طارق القرني</p></div>
-      <img src="tariq.jfif" alt="صورة المشروع">
+      <img src="tariq.jfif" alt="">
     </div>
     <p>أداة لصناعة العروض التقديمية والمستندات باستخدام الذكاء الاصطناعي.</p>
   </div>
@@ -389,7 +115,7 @@
     <h2>قسم التميز الرقمي</h2>
     <div class="card-header">
       <div class="student-names"><p>طلال الحارثي<br>محمد القحطاني</p></div>
-      <img src="talal.jfif" alt="صورة المشروع">
+      <img src="talal.jfif" alt="">
     </div>
     <p>قسم يربط بين الذكاء الاصطناعي وإنترنت الأشياء لتطوير حلول تعليمية تفاعلية مبتكرة.</p>
   </div>
@@ -399,7 +125,7 @@
     <h2>مساعد شخصي (كمي)</h2>
     <div class="card-header">
       <div class="student-names"><p>عمر العتيبي</p></div>
-      <img src="omar.jfif" alt="صورة المشروع">
+      <img src="omar.jfif" alt="">
     </div>
     <p>مشروع بلغة بايثون باستخدام Unity كمساعد شخصي ذكي.</p>
   </div>
@@ -409,7 +135,7 @@
     <h2>مصحح نصوص</h2>
     <div class="card-header">
       <div class="student-names"><p>أحمد آل عادي</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>لعبة تعليمية تفاعلية لتصحيح النصوص وتحسين المهارات اللغوية.</p>
   </div>
@@ -419,7 +145,7 @@
     <h2>مترجم OpenL</h2>
     <div class="card-header">
       <div class="student-names"><p>محمد الغامدي</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>موقع لترجمة النصوص والمستندات والصوتيات بدقة عالية وتصحيح تلقائي للأخطاء.</p>
   </div>
@@ -429,7 +155,7 @@
     <h2>تنظيم الأهداف</h2>
     <div class="card-header">
       <div class="student-names"><p>حمد القحطاني</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>منظم مهام ومتابعة أهداف لطلاب المدارس بلغة HTML.</p>
   </div>
@@ -439,7 +165,7 @@
     <h2>سجل درجات</h2>
     <div class="card-header">
       <div class="student-names"><p>فهد الأحمري</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>أداة رقمية لتسهيل رصد الدرجات وإدارة أعمال المعلمين.</p>
   </div>
@@ -449,7 +175,7 @@
     <h2>تنظيم الوقت</h2>
     <div class="card-header">
       <div class="student-names"><p>سيف الزهراني</p></div>
-      <img src="saif.jfif" alt="صورة المشروع">
+      <img src="saif.jfif" alt="">
     </div>
     <p>تطبيق يساعد الطلاب على إدارة وقتهم وتحقيق أهدافهم الدراسية.</p>
   </div>
@@ -460,31 +186,27 @@
     <h2>برمجة روبوت</h2>
     <div class="card-header">
       <div class="student-names"><p>الوليد المنشرة</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>بناء روبوت من الصفر وبرمجته بـ Visual Programming.</p>
   </div>
-  
-<!-- 11 -->
+
+  <!-- 11 -->
   <div class="card">
     <div class="featured-badge">⭐ مميز</div>
     <h2>الأمن السيبراني</h2>
     <div class="card-header">
       <div class="student-names"><p>مشعل القحطاني</p></div>
-      <img src="IMG_4614.jpeg" alt="صورة المشروع">
+      <img src="IMG_4614.jpeg" alt="">
     </div>
     <p>أمن سيبراني وحماية معلومات.</p>
   </div>
-  
 
 </main>
 
-<footer>
+<footer style="text-align:center; padding:40px; color:#aaa;">
   © 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
 </footer>
 
 </body>
 </html>
-
-
-
