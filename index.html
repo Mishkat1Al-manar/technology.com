@@ -11,230 +11,267 @@
 
     body {
       font-family: 'Tajawal', sans-serif;
-      background: #f6faff; /* فاتح */
-      color: #111;
+      background: #f2f3f5;
+      color: #1a1a1a;
       overflow-x: hidden;
-      position: relative;
       min-height: 100vh;
     }
 
-    /* خلفية متدرجة فاتحة */
+    /* خلفية خفيفة */
     body::before {
       content: "";
-      position: fixed;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
+      position: fixed; inset: 0;
       background:
-        radial-gradient(circle at 20% 30%, rgba(0,150,255,0.18) 0%, transparent 45%),
-        radial-gradient(circle at 80% 70%, rgba(140,60,255,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(0,200,255,0.1) 0%, transparent 60%);
-      animation: rotate-bg 35s linear infinite;
+        radial-gradient(circle at 30% 20%, rgba(160,160,160,0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(120,120,120,0.15), transparent 40%);
+      pointer-events: none;
       z-index: 0;
     }
 
-    @keyframes rotate-bg {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image:
-        linear-gradient(rgba(0,150,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,150,255,0.05) 1px, transparent 1px);
-      background-size: 55px 55px;
-      animation: grid-move 18s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes grid-move {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(40px, 40px); }
-    }
-
-    /* جزيئات */
-    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-    .particle {
-      position: absolute;
-      width: 3px; height: 3px;
-      background: rgba(0,170,255,0.8);
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0,150,255,0.5);
-      animation: float 12s infinite ease-in-out;
-    }
-
-    @keyframes float { 
-      0%,100% { transform: translate(0, 0); opacity: .4; }
-      50% { transform: translate(-40px, -160px); opacity: .9; }
-    }
-
-    /* الهيدر */
     header {
       text-align: center;
-      padding: 120px 20px 80px;
-      position: relative;
-      z-index: 3;
+      padding: 100px 20px 60px;
+      position: relative; z-index: 2;
     }
 
-    .logo-container { position: relative; display: inline-block; }
+    /* الشعار */
     .logo {
-      width: 150px; height: 150px; border-radius: 50%;
-      border: 4px solid transparent;
-      background: linear-gradient(#fff, #fff) padding-box,
-                  linear-gradient(135deg, #00aaff, #8a3bff) border-box;
-      box-shadow: 0 0 40px rgba(0,140,255,0.4);
-      animation: float-logo 4s ease-in-out infinite;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 6px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.12);
     }
-
-    @keyframes float-logo { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
     header h1 {
-      font-size: 3em;
+      font-size: 2.8em;
       font-weight: 900;
-      margin-top: 35px;
-      background: linear-gradient(135deg, #0077ff, #00bbff, #9a42ff);
+      margin-top: 20px;
+      background: linear-gradient(135deg, #3b3b3b, #5e5e5e, #3b3b3b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(0,120,255,0.4);
     }
 
-    header p { font-size: 1.3em; color: #444; margin-top: 10px; }
-    header p strong { color: #007bff; }
+    header p { font-size: 1.2em; color: #555; margin-top: 10px; }
 
-    /* الاحصائيات */
+    /* إحصائيات */
     .stats {
-      display: flex; justify-content: center; gap: 45px; margin-top: 50px; flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 35px; flex-wrap: wrap;
+      margin-top: 40px;
     }
 
     .stat-item {
-      padding: 25px 40px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(0,150,255,0.25);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      transition: 0.4s;
+      background: #ffffffc9;
+      padding: 20px 35px;
+      border-radius: 14px;
+      border: 1px solid #ddd;
+      backdrop-filter: blur(8px);
     }
-    .stat-number { font-size: 2.5em; font-weight: 900; color: #007fff; }
-    .stat-label { color: #444; font-size: 0.95em; }
+
+    .stat-number { font-size: 2.4em; font-weight: 900; color: #333; }
+    .stat-label { font-size: .95em; color: #555; }
 
     /* الشبكة */
     .container {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 40px; padding: 60px 40px; position: relative; z-index: 3; max-width: 1400px; margin: auto;
+      max-width: 1400px;
+      margin: auto;
+      padding: 50px 35px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 35px;
+      z-index: 2;
+      position: relative;
     }
 
-    /* البطاقات */
+    /* بطاقة */
     .card {
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(0,150,255,0.3);
-      border-radius: 25px;
-      backdrop-filter: blur(15px);
-      overflow: hidden;
-      transform: scale(0.95);
-      opacity: 0;
-      animation: fadeUp 0.8s forwards;
-      transition: 0.5s;
+      background: #ffffffea;
+      border-radius: 20px;
+      border: 1px solid #d6d6d6;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: .35s;
     }
 
-    .card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 20px 60px rgba(0,130,255,0.25); }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    }
 
-    @keyframes fadeUp { to { opacity: 1; transform: scale(1); } }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 
-    .card-content { padding: 35px; }
+    .card-header img {
+      width: 120px; height: 120px; border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
 
     .card h2 {
-      font-size: 1.7em; font-weight: 700; margin-bottom: 15px;
-      color: #007bf7; border-bottom: 2px solid #00a8ff2a; padding-bottom: 10px;
+      font-size: 1.6em; margin-bottom: 12px;
+      color: #2b2b2b; font-weight: 700;
+      border-bottom: 2px solid #dcdcdc;
+      padding-bottom: 8px;
     }
 
-    .card-header { display: flex; justify-content: space-between; align-items: center; }
-    .card-header img {
-      width: 140px; height: 140px; border-radius: 20px;
-      border: 3px solid transparent;
-      background: linear-gradient(#fff,#fff) padding-box,
-                  linear-gradient(135deg,#007fff,#8a3bff) border-box;
-    }
+    .student-names p { color: #444; font-size: 1.05em; }
 
-    .student-names p { color: #333; font-size: 1.1em; }
+    .card p { color: #555; line-height: 1.7; font-size: 1.05em; }
 
-    p { font-size: 1.05em; line-height: 1.7; color: #444; }
-
-    /* شارة مميز */
     .featured-badge {
-      position: absolute; top: 20px; left: 20px;
-      background: linear-gradient(135deg, #ffd700, #fff07a);
-      padding: 8px 16px; border-radius: 20px; font-weight: 700;
-      box-shadow: 0 4px 12px rgba(255,215,0,0.4); color: #000;
+      background: #ffd900;
+      padding: 6px 14px;
+      display: inline-block;
+      border-radius: 18px;
+      font-size: 0.85em;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    /* الفوتر */
     footer {
-      text-align: center; padding: 40px; margin-top: 80px;
-      color: #007fff; font-weight: 500;
+      text-align: center;
+      padding: 45px;
+      margin-top: 70px;
+      color: #666;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 
 <body>
-  <div class="particles" id="particles"></div>
 
-  <header>
-    <div class="logo-container">
-      <img src="photo-output.png" class="logo">
+<header>
+  <img src="photo-output.png" class="logo">
+  <h1>معرض التقنية الرقمية</h1>
+  <p>ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
+
+  <div class="stats">
+    <div class="stat-item"><div class="stat-number">11</div><div class="stat-label">مشروع مبتكر</div></div>
+    <div class="stat-item"><div class="stat-number">16</div><div class="stat-label">طالب مبدع</div></div>
+    <div class="stat-item"><div class="stat-number">2025</div><div class="stat-label">العام الدراسي</div></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="featured-badge">⭐ مميز</div>
+    <h2>قاموس تفاعلي لتعلم الإنجليزية</h2>
+    <div class="card-header">
+      <div class="student-names"><p>فهد العتيبي<br>محمد العتيبي</p></div>
+      <img src="m.f.jfif">
     </div>
-    <h1>معرض التقنية الرقمية</h1>
-    <p>ثانوية مشكاة المنار الأهلية | بإشراف الأستاذ <strong>محمود سعيد</strong></p>
+    <p>موقع يساعدك على توسيع مفرداتك وبناء أساس لغوي قوي يمكنك الاعتماد عليه في الدراسة.</p>
+  </div>
 
-    <div class="stats">
-      <div class="stat-item"><div class="stat-number">11</div><div class="stat-label">مشروع مبتكر</div></div>
-      <div class="stat-item"><div class="stat-number">16</div><div class="stat-label">طالب مبدع</div></div>
-      <div class="stat-item"><div class="stat-number">2025</div><div class="stat-label">العام الدراسي</div></div>
+  <!-- 2 -->
+  <div class="card">
+    <h2>أداة Gamma AI</h2>
+    <div class="card-header">
+      <div class="student-names"><p>طارق القرني</p></div>
+      <img src="tariq.jfif">
     </div>
-  </header>
+    <p>أداة لصناعة العروض التقديمية والمستندات باستخدام الذكاء الاصطناعي.</p>
+  </div>
 
-  <!-- 💎 هنا كل البطاقات (نسّبتهم كما هم بدون تغيير) -->
-  <!-- نفس محتوى مشروعك بدون حذف، ماعدلت إلا الألوان فقط -->
-
-  <main class="container">
-
-    <!-- بطاقة 1 -->
-    <div class="card">
-      <div class="featured-badge">⭐ مميز</div>
-      <div class="card-content">
-        <h2>قاموس تفاعلي لتعلم الإنجليزية</h2>
-        <div class="card-header">
-          <div class="student-names"><p>فهد العتيبي<br>محمد العتيبي</p></div>
-          <img src="m.f.jfif">
-        </div>
-        <p>موقع يساعدك على توسيع مفرداتك وبناء أساس لغوي قوي يمكنك الاعتماد عليه في الدراسة.</p>
-      </div>
+  <!-- 3 -->
+  <div class="card">
+    <div class="featured-badge">⭐ مميز</div>
+    <h2>قسم التميز الرقمي</h2>
+    <div class="card-header">
+      <div class="student-names"><p>طلال الحارثي<br>محمد عيبان<br>محمد القحطاني</p></div>
+      <img src="talal.jfif">
     </div>
+    <p>قسم يربط بين الذكاء الاصطناعي وإنترنت الأشياء لتطوير حلول تعليمية تفاعلية مبتكرة.</p>
+  </div>
 
-    <!-- باقي البطاقات كما هي... (لم أمس النصوص) -->
-    
-    <!-- الصراحة لو أكتبهم كلهم هنا راح يطول الرد جدا، فالمهم إنك تنسخ أول بطاقة كنسق
-         والباقي انسخه من كودك لأن البطاقات ما تغير فيها شيء غير ألوان الخلفية اللي صارت جاهزة 👍 -->
+  <!-- 4 -->
+  <div class="card">
+    <h2>مساعد شخصي (كمي)</h2>
+    <div class="card-header">
+      <div class="student-names"><p>عمر العتيبي</p></div>
+      <img src="omar.jfif">
+    </div>
+    <p>مشروع بلغة بايثون باستخدام Unity كمساعد شخصي ذكي.</p>
+  </div>
 
-  </main>
+  <!-- 5 -->
+  <div class="card">
+    <h2>مصحح نصوص</h2>
+    <div class="card-header">
+      <div class="student-names"><p>أحمد آل عادي</p></div>
+      <img src="IMG_4614.jpeg">
+    </div>
+    <p>لعبة تعليمية تفاعلية لتصحيح النصوص وتحسين المهارات اللغوية.</p>
+  </div>
 
-  <footer>
-    © 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
-  </footer>
+  <!-- 6 -->
+  <div class="card">
+    <h2>مترجم OpenL</h2>
+    <div class="card-header">
+      <div class="student-names"><p>محمد الغامدي</p></div>
+      <img src="IMG_4614.jpeg">
+    </div>
+    <p>موقع لترجمة النصوص والمستندات والصوتيات بدقة عالية وتصحيح تلقائي للأخطاء.</p>
+  </div>
 
-  <script>
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random()*100 + '%';
-      p.style.top = Math.random()*100 + '%';
-      p.style.animationDelay = Math.random()*10 + 's';
-      particlesContainer.appendChild(p);
-    }
-  </script>
+  <!-- 7 -->
+  <div class="card">
+    <h2>تنظيم الأهداف</h2>
+    <div class="card-header">
+      <div class="student-names"><p>حمد القحطاني</p></div>
+      <img src="IMG_4614.jpeg">
+    </div>
+    <p>منظم مهام ومتابعة أهداف لطلاب المدارس بلغة HTML.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+    <h2>سجل درجات</h2>
+    <div class="card-header">
+      <div class="student-names"><p>فهد الأحمري</p></div>
+      <img src="IMG_4614.jpeg">
+    </div>
+    <p>أداة رقمية لتسهيل رصد الدرجات وإدارة أعمال المعلمين.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+    <h2>تنظيم الوقت</h2>
+    <div class="card-header">
+      <div class="student-names"><p>سيف الزهراني</p></div>
+      <img src="saif.jfif">
+    </div>
+    <p>تطبيق يساعد الطلاب على إدارة وقتهم وتحقيق أهدافهم الدراسية.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+    <div class="featured-badge">⭐ مميز</div>
+    <h2>برمجة روبوت</h2>
+    <div class="card-header">
+      <div class="student-names"><p>الوليد المنشرة</p></div>
+      <img src="IMG_4614.jpeg">
+    </div>
+    <p>بناء روبوت من الصفر وبرمجته بـ Visual Programming.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+    <h2>تفاعلات كيميائية</h2>
+    <div class="card-header">
+      <div class="student-names"><p>عبدالله الشهراني</p></div>
+      <img src="abda.jfif">
+    </div>
+    <p>استخدام البرمجة لتسهيل التفاعلات الكيميائية.</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
+</footer>
+
 </body>
 </html>
-
