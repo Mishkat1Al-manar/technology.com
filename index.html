@@ -470,16 +470,16 @@
   </div>
 
   <div class="controls">
-    <button class="control-btn prev-btn" onclick="prevCard()">◀</button>
+    <button class="control-btn prev-btn" onclick="prevCard()">◀️</button>
     <button class="control-btn pause-btn" onclick="togglePause()">⏸</button>
-    <button class="control-btn next-btn" onclick="nextCard()">▶</button>
+    <button class="control-btn next-btn" onclick="nextCard()">▶️</button>
   </div>
 
   <div class="indicators" id="indicators"></div>
 </main>
 
 <footer>
-  © 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
+  ©️ 2025 ثانوية مشكاة المنار الأهلية | جميع الحقوق محفوظة
 </footer>
 
 <script>
@@ -542,7 +542,7 @@ function togglePause() {
   
   if (isPaused) {
     clearInterval(interval);
-    pauseBtn.textContent = '▶';
+    pauseBtn.textContent = '▶️';
     pauseBtn.classList.add('paused');
   } else {
     startAutoPlay();
@@ -562,4 +562,3 @@ startAutoPlay();
 
 </body>
 </html>
-
